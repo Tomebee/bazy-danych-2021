@@ -1,1 +1,1 @@
-docker run --name northwind-db -v /mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12345 -d mysql
+docker run --name northwind-db -p 8080:8080 -v /mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12345 -d mysql

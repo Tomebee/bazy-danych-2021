@@ -1,0 +1,141 @@
+###Fetch all employees
+GET https://localhost:5001/api/employees
+
+###Fetch employee
+GET https://localhost:5001/api/employees/10
+
+
+###Post new employee (invalid)
+POST https://localhost:5001/api/employees HTTP/1.1
+Content-Type: application/json
+
+{
+    "lastName": "",
+    "firstName": "",
+    "title": "Vice President, Sales",
+    "titleOfCourtesy": "Dr.",
+    "birthDate": "1952-02-19T00:00:00",
+    "hireDate": "1992-08-14T00:00:00",
+    "address": "908 W. Capital Way",
+    "city": "Tacoma",
+    "region": "WA",
+    "postalCode": "98401",
+    "country": "Poland",
+    "homePhone": "17 822 8822",
+    "extension": "3457",
+    "photo": "",
+    "notes": "note",
+    "reportsTo": 0
+}
+
+###Post new employee
+POST https://localhost:5001/api/employees HTTP/1.1
+Content-Type: application/json
+
+{
+    "lastName": "Belczyk",
+    "firstName": "Tomasz",
+    "title": "Vice President, Sales",
+    "titleOfCourtesy": "Dr.",
+    "birthDate": "1952-02-19T00:00:00",
+    "hireDate": "1992-08-14T00:00:00",
+    "address": "908 W. Capital Way",
+    "city": "Tacoma",
+    "region": "WA",
+    "postalCode": "98401",
+    "country": "Poland",
+    "homePhone": "17 822 8822",
+    "extension": "3457",
+    "photo": "",
+    "notes": "note",
+    "reportsTo": 0
+}
+
+
+###Update employee
+PUT https://localhost:5001/api/employees/10 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Master",
+    "titleOfCourtesy": "Dr.",
+    "birthDate": "1952-02-19T00:00:00",
+    "hireDate": "1992-08-14T00:00:00",
+    "address": "908 W. Capital Way",
+    "city": "Tacoma",
+    "region": "WA",
+    "postalCode": "98401",
+    "country": "Poland",
+    "homePhone": "17 822 8822",
+    "extension": "3457",
+    "photo": "",
+    "notes": "note",
+    "reportsTo": 0
+}
+
+###Get products
+GET https://localhost:5001/api/products
+
+###Get shippers
+GET https://localhost:5001/api/shippers
+
+
+
+###Get all
+GET https://localhost:5001/api/customers
+
+
+###Create customer
+POST https://localhost:5001/api/customers HTTP/1.1
+Content-Type: application/json
+
+{
+    
+}
+
+
+###Get all orders
+GET https://localhost:5001/api/orders?skip=0&take=10
+
+###Get shipped
+GET https://localhost:5001/api/orders?skip=0&take=10&shipped=true
+
+
+###Create order
+POST https://localhost:5001/api/customers/ALFKI/orders HTTP/1.1
+Content-Type: application/json
+
+{
+    "shipVia": 3,
+    "shipName": "Hanari Carnes",
+    "shipAddress": "Rua do Pa?o, 67",
+    "shipCity": "Rio de Janeiro",
+    "shipRegion": "RJ",
+    "shipPostalCode": "05454-876",
+    "shipCountry": "Brazil",
+    "orderDetails": {
+        "productId": 34,
+        "quantity": 2
+    }
+}
+
+###Create order Invalid
+POST https://localhost:5001/api/customers/ALFKI/orders HTTP/1.1
+Content-Type: application/json
+
+{
+    "shipVia": 3,
+    "shipName": "Hanari Carnes",
+    "shipAddress": "Rua do Pa?o, 67",
+    "shipCity": "Rio de Janeiro",
+    "shipRegion": "RJ",
+    "shipPostalCode": "05454-876",
+    "shipCountry": "Brazil",
+    "orderDetails": {
+        "productId": 34,
+        "quantity": 23000
+    }
+}
+
+###Orders from this month
+GET https://localhost:5001/api/orders/recent
